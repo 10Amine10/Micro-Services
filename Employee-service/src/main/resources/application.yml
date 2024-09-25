@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: Employee-service
+  datasource:
+    password: Amine1998@@
+    username: root
+    url: jdbc:mysql://localhost:3303/MicroS
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc.batch_size: 30
+        order_inserts: true
+        jdbc.time_zone: UTC
+        types.print.banner: false
+        format_sql: true
+server:
+  port: ${SERVER_PORT:8082}
+  servlet:
+    contextPath: ${CONTEXT_PATH:/api}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+#feign:
+#  hystrix:
+#    enabled: true
+
+
+#cloud:
+#  stream:
+#    kafka:
+#      binder:
+#        brokers: localhost:9092  # URL du serveur Kafka
+#    bindings:
+#      output:
+#        destination: employee-topic  # Destination du topic Kafka pour les messages sortants
+#      input:
+#        destination: employee-topic  # Destination du topic Kafka pour les messages entrants
+#    default:
+#      contentType: application/json  # Format JSON pour les messages Kafka
+
+  logging:
+    level:
+      org.springframework: DEBUG  # Niveau de log pour débogage
+
+
